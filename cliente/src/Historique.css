@@ -1,0 +1,12 @@
+.Listuser {
+    display: flex;
+  }
+  .historique-enchere {
+    flex: 1;
+    padding: 1rem;
+  }
+  .historique-vente {
+    flex: 1;
+    padding: 1rem;
+  }
+  
