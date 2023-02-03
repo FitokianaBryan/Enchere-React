@@ -19,7 +19,7 @@ export function ReEncherir(){
         const headers = new Headers();
         headers.append('token', token);
         
-        const response = await fetch(`http://localhost:8080/api/HistoriqueOffre/ReEncherir/${id}`, {
+        const response = await fetch(`https://enchere-spring-production.up.railway.app/api/HistoriqueOffre/ReEncherir/${id}`, {
           method: 'POST',
           headers: headers,
           body: donnee

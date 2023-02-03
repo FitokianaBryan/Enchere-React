@@ -31,7 +31,7 @@ export default function Login(){
       const data = new FormData();
       data.append('email',email);
       data.append('mdp', password);
-        const response = await fetch('http://localhost:8080/api/utilisateur/login', {
+        const response = await fetch('https://enchere-spring-production.up.railway.app/api/utilisateur/login', {
           method: 'POST',
           body: data
          });

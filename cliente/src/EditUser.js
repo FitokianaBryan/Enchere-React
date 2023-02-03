@@ -3,7 +3,7 @@ import {Redirects} from "./Redirects";
 import {Card} from "./Card";
 import { CallWebService } from "./CallWebService";
 export function EditUser(){
-    const {data}=CallWebService("http://localhost:8080/api/enchere/listeEnchere");
+    const {data}=CallWebService("https://enchere-spring-production.up.railway.app/api/enchere/listeEnchere");
     console.log(data);
     return(
         <div className="EditUser">

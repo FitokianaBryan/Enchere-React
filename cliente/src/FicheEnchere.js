@@ -12,7 +12,7 @@ export function FicheEnchere(){
     const [idEnchere, setIdEnchere] = useState(null);    
   
     useEffect(() => {
-      fetch("http://localhost:8080/api/enchere/ficheEnchere/"+id)
+      fetch("https://enchere-spring-production.up.railway.app/api/enchere/ficheEnchere/"+id)
         .then((response) => response.json())
 
         .then((data) => setData(data));

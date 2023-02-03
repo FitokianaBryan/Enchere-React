@@ -26,7 +26,7 @@ export function ListEnchere(){
        const[motcles,setMotcles]=useState('');
      
        useEffect(() => {
-         fetch("http://localhost:8080/api/enchere/listeEnchere")
+         fetch("https://enchere-spring-production.up.railway.app/api/enchere/listeEnchere")
            .then((response) => response.json())
            .then((data) => {
             const encheres = data.map((enchere) => {

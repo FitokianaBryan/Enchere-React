@@ -13,7 +13,7 @@ useEffect(() => {
     const headers = new Headers();
     headers.append('token', token);
 
-    fetch(`http://localhost:8080/api/historique/HistoriqueEncherisseur`, {
+    fetch(`https://enchere-spring-production.up.railway.app/api/historique/HistoriqueEncherisseur`, {
       method: 'GET',
       headers: headers
     })
@@ -21,7 +21,7 @@ useEffect(() => {
     .then(data => setEncherisseur(data))
     
      //vendeur
-     fetch(`http://localhost:8080/api/historique/HistoriqueVente`, {
+     fetch(`https://enchere-spring-production.up.railway.app/api/historique/HistoriqueVente`, {
         method: 'GET',
         headers: headers
     })

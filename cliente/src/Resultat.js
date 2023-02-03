@@ -10,7 +10,7 @@ export function Resultat(){
     const [data, setData] = useState([]);
   
     useEffect(() => {
-      fetch("http://localhost:8080/api/historique/ResultatEnchere/"+id)
+      fetch("https://enchere-spring-production.up.railway.app/api/historique/ResultatEnchere/"+id)
         .then((response) => response.json())
 
         .then((data) => setData(data));
