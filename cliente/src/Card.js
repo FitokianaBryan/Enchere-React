@@ -3,7 +3,7 @@ import {Redirects} from "./Redirects";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
-export function Card({description1,prixminimumvente1,dateheureenchere1,durreenchere1,statuts1,onclick1,boutton}){
+export function Card({description1,prixminimumvente1,dateheureenchere1,durreenchere1,enchere1,statuts1,onclick1,boutton}){
     return(         
         <div className="col" style={{marginRight:'10px'}}>
       <div className="card mb-4 rounded-3 shadow-sm border-primary">
@@ -17,6 +17,7 @@ export function Card({description1,prixminimumvente1,dateheureenchere1,durreench
             <li>durree : {durreenchere1} mn</li>
             <li>statut : {statuts1}</li>
           </ul>
+          <Countdown enchere={enchere1} />
             <button onClick={onclick1} className="btn btn-primary">
             Voir ficheEnchere
             </button>
@@ -26,3 +27,60 @@ export function Card({description1,prixminimumvente1,dateheureenchere1,durreench
       </div>
     )
 } 
+
+function Countdown({ enchere }) {
+  const [minutes, setMinutes] = useState(
+    Math.floor(
+      (new Date(enchere.dateheureenchere).getTime() +
+        enchere.durreEnchere * 60 * 1000 -
+        new Date().getTime()) /
+        (1000 * 60)
+    )
+  );
+
+  const [seconds, setSeconds] = useState(
+    Math.floor(
+      (new Date(enchere.dateheureenchere).getTime() +
+        enchere.durreEnchere * 60 * 1000 -
+        new Date().getTime()) /
+        1000
+    ) % 60
+  );
+
+  useEffect(() => {
+    let interval = null;
+    if (minutes >= 0 && seconds >= 0) {
+      interval = setInterval(() => {
+        setMinutes(
+          Math.floor(
+            (new Date(enchere.dateheureenchere).getTime() +
+              enchere.durreEnchere * 60 * 1000 -
+              new Date().getTime()) /
+              (1000 * 60)
+          )
+        );
+        setSeconds(
+          Math.floor(
+            (new Date(enchere.dateheureenchere).getTime() +
+              enchere.durreEnchere * 60 * 1000 -
+              new Date().getTime()) /
+              1000
+          ) % 60
+        );
+      }, 1000);
+    } else {
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [minutes, seconds, enchere]);
+
+  return (
+    <div>
+      {minutes >= 0 && seconds >= 0 ? (
+        <p>Temps restant : {minutes} minutes {seconds} secondes</p>
+      ) : (
+        <p>Enchère terminée</p>
+      )}
+    </div>
+  );
+}

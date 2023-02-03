@@ -1,12 +1,4 @@
-.Listuser {
-    display: flex;
+
+  .detail{
+        color: green;
   }
-  .historique-enchere {
-    flex: 1;
-    padding: 1rem;
-  }
-  .historique-vente {
-    flex: 1;
-    padding: 1rem;
-  }
-  

@@ -17,7 +17,6 @@ export function FicheEnchere(){
 
         .then((data) => setData(data));
     }, [id]);
-
     
     function Encherir(id) {
       setIdEnchere(id);
@@ -101,9 +100,9 @@ export function FicheEnchere(){
                <CardFiche titre={item[4]} vendeur={item[2]} pricemin={item[5]} 
                duree={item[6]}  datedebut={FormatDate(item[7])} datefin={FormatDate(item[8])}
                produits={item[9]} categorie={item[11]}   
-               statut={item[12] === 1 ? "Terminé" : "En cours"}  image={"logo192.png"} 
+               statut={item[12] === 1 ? "Terminé" : "En cours"}  image={item[10]} 
                click1={item[12] !== 1 && (<Button click={() => Encherir(item[0])}>encherir</Button>)}
-               click2={item[12] !== 1 && (<Button click={() => Resultat(item[0])}>voir resultat</Button>)} 
+               click2={item[12] !== 0 && (<Button click={() => Resultat(item[0])}>voir resultat</Button>)} 
                ></CardFiche>
               ))}
              </div>
@@ -120,6 +119,7 @@ export function CardFiche({titre,vendeur,pricemin,duree,datedebut,datefin,catego
            <h4>Fiche enchere</h4>
            <br/>
            <Titre>titre :{titre}</Titre>
+            <Image image={image}></Image>
            <Column>vendeur : {vendeur}</Column>
            <Column>Prix minimum Vente : {pricemin}</Column>
            <Column>duree : {duree} mn</Column>
@@ -128,7 +128,7 @@ export function CardFiche({titre,vendeur,pricemin,duree,datedebut,datefin,catego
            <Produits>produits : {produits}</Produits>
            <Column>categorie : {categorie}</Column>
            <Column>statut  : {statut}</Column>
-           <Image image={image}></Image>
+          
            <Nbetoile/>
            {click1}
            {click2}

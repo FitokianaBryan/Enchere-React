@@ -15,6 +15,7 @@ import {ReEncherir} from './ReEncherir';
 import {Logout} from './Logout';
 import { Resultat } from './Resultat';
 import {Historique} from './Historique';
+import {Compte} from './Compte';
 function App({children}) {
     //creation de composant Tabs et composant enfant Tab
     /*return <Tabs>  
@@ -41,7 +42,8 @@ function App({children}) {
                   <Route path='/ficheEnchere/:id' element={<FicheEnchere/>} exact></Route>
                   <Route path='/Encherir/:id' element={<ReEncherir/>} exact></Route>
                   <Route path='/Resultat/:id' element={<Resultat/>} exact></Route>
-                  <Route path='/Historique' element={<Historique/>} exact></Route> 
+                  <Route path='/Historique' element={<Historique/>} exact></Route>
+                  <Route path='/Compte' element={<Compte/>} exact></Route>  
                   <Route path='/logout' element={<Logout/>} exact></Route> 
               </Routes> 
         </BrowserRouter>    

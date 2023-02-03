@@ -34,22 +34,21 @@ export  function Redirects(){
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
       <li className="nav-item">
-        <a className="nav-link active" href="listEnchere">liste enchère</a>
+        <a className="nav-link active" href="/listEnchere">liste enchère</a>
       </li>
       <li className="nav-item">
-        <a className="nav-link active" href="login">login</a>
+        <a className="nav-link active" href="/login">login</a>
       </li>
       <li className="nav-item">
-        <a className="nav-link active" href="logout">log out</a>
+        <a className="nav-link active" href="/Compte">Compte User</a>
+      </li>
+      <li className="nav-item">
+        <a className="nav-link active" href="/logout">log out</a>
       </li>
       <li className="nav-item">
          <button className="nav-link active " style={{backgroundColor: 'inherit',border:'none'}}  onClick={() => Historique()}>Voir historique</button>
       </li>
     </ul>
-    <form className="d-flex" role="search">
-          <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-          <button className="btn btn-outline-success" type="submit">Search</button>
-    </form>
       </div>
     </div>
   </nav>

@@ -10,7 +10,7 @@ import image from './CSS/Login/Image.jpg';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
-
+import { Redirects } from "./Redirects";
 
 
 
@@ -42,7 +42,7 @@ export default function Login(){
          console.log(data.datas);
          alert(data.message);
          localStorage.setItem('token',data.datas);
-         setRedirect(true);
+         window.location.href = '/ListEnchere';
         }
         else{
          //traitement de la réponse KO
@@ -51,8 +51,10 @@ export default function Login(){
         }
      };
     return(
+      <div className="Listuser">
+      <Redirects></Redirects>
       <MDBContainer fluid className="p-3 my-5 h-custom">
-
+        
       <MDBRow>
 
         <MDBCol col='10' md='6'>
@@ -87,5 +89,6 @@ export default function Login(){
 
       </MDBRow>
     </MDBContainer>
+    </div>
     );
 }

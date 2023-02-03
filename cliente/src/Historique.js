@@ -2,6 +2,7 @@ import React from "react";
 import { useState,useEffect } from "react";
 import { Redirects } from "./Redirects";
 import { FormatDate } from "./FormatDate";
+import "./Historique.css";
 export function Historique(){
 
 const [encherisseur, setEncherisseur] = useState([]);
@@ -141,16 +142,16 @@ export function CardDetail({children,titre}){
 export function CardDetailVente({titre1,pricemin1,duree1,date1,produits1,descriptions,categorie1,prixwin1,user1}){
     return(
       <div class="col-lg-6 col-md-12 mb-8 mb-lg-0">
-        <div className="card shadow-sm">
-           <Titre>titre :{titre1}</Titre>
-           <Column>Prix minimum Vente : {pricemin1} ar</Column>
-           <Column>Durée de l'enchère: {duree1} min</Column>
-           <Column>Date et heure de l'enchère : {date1}</Column>
-           <Produits>produits : {produits1}</Produits>
-           <Descriptions>description:{descriptions}</Descriptions>
-           <Column>Catégorie produit: {categorie1}</Column>
-           <Column>Prix gagnant  : {prixwin1}</Column>
-           <Column>Utilisateur : {user1}</Column>
+        <div className="card shadow-sm" style={{marginTop:'20px'}}>
+           <Titre>{titre1}</Titre>
+           <Span>Prix minimum Vente : <Column> {pricemin1} ar</Column> </Span>
+           <Span>Durée de l'enchère : <Column> {duree1} min</Column></Span>
+           <Span>Date et heure de l'enchère: <Column> {date1}</Column></Span>
+           <Span>produits : <Produits>  {produits1}</Produits></Span>
+           <Span>description : <Descriptions> {descriptions}</Descriptions></Span>
+           <Span>Catégorie produit : <Column> {categorie1}</Column></Span>
+           <Span>Prix gagnant :<Column>{prixwin1}</Column></Span>
+           <Span>Utilisateur :<Column> {user1}</Column></Span>
            <Nbetoile/>
         </div>
       </div>
@@ -162,14 +163,14 @@ export function CardEncherisseur({titre,prixmin,duree,date,montant,datemise,prod
       <div class="col-lg-6 col-md-12 mb-8 mb-lg-0">
         <div className="card shadow-sm" style={{marginTop:'20px'}}>
              <Titre>{titre}</Titre>
-             <Column>Prix minimum de vente: {prixmin} ar</Column>
-             <Column>Durée de l'enchère: {duree} minutes</Column>
-             <Column>Date et heure de l'enchère: {date}</Column>
-             <Column>Montant offre : {montant} ar</Column>
-             <Column>Date heure du mise: {datemise}</Column>
-             <Column>produit : {produit}</Column>
-             <Column>Description du produit : {descriptions}</Column>
-             <Column>Catégorie produit: {category}</Column>
+             <Span>Prix minimum de vente: <Column> {prixmin} ar</Column></Span>
+             <Span>Durée de l'enchère:<Column>{duree} minutes</Column> </Span>
+             <Span>Date et heure de l'enchère: <Column> {date}</Column></Span>
+             <Span>Montant offre : <Column> {montant} ar</Column></Span>
+             <Span>Date heure du mise: <Column> {datemise}</Column></Span>
+             <Span>produit : <Column> {produit}</Column></Span>
+             <Span>Description du produit :<Column> {descriptions}</Column></Span>
+             <Span>Catégorie produit: <Column>{category}</Column></Span>
              <Nbetoile/>
        </div>
     </div>
@@ -186,13 +187,13 @@ export function Titre({children}){
 
 export function Column({children}){
   return(
-      <p className="sm text-muted font-bold">{children}</p>
+      <span className="sm text-muted font-bold" style={{marginTop:'20px'}}>{children}</span>
   );
 }
 
 export function Descriptions({children}){
   return(
-      <p className="sm text-muted font-bold">{children}</p>
+      <span className="sm text-muted font-bold">{children}</span>
   );
 }
 
@@ -229,7 +230,11 @@ export function Button({children,click}){
       </div>
   )
 } 
-
+export function Span({children}){
+    return(
+        <span className="detail" style={{marginTop:'20px'}}>{children}</span>
+    );
+}
 
 
 
